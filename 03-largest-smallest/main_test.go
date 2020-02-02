@@ -8,7 +8,7 @@ import (
 )
 
 func TestLargestAndSmallest(t *testing.T) {
-	patterns := []struct {
+	tests := []struct {
 		input  []int
 		expect Result
 	}{
@@ -30,10 +30,10 @@ func TestLargestAndSmallest(t *testing.T) {
 		},
 	}
 
-	for _, p := range patterns {
-		got := largestAndSamallest(p.input)
-		if !reflect.DeepEqual(p.expect, got) {
-			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(p.expect), fmt.Sprint(got))
+	for _, tt := range tests {
+		got := largestAndSamallest(tt.input)
+		if !reflect.DeepEqual(tt.expect, got) {
+			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(tt.expect), fmt.Sprint(got))
 		}
 	}
 }

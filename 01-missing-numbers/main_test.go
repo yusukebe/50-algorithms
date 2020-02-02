@@ -7,7 +7,7 @@ import (
 )
 
 func TestFindMissingNumbers(t *testing.T) {
-	patterns := []struct {
+	tests := []struct {
 		numbers    []int
 		totalCount int
 		expect     []int
@@ -34,10 +34,10 @@ func TestFindMissingNumbers(t *testing.T) {
 		},
 	}
 
-	for _, p := range patterns {
-		got := findMissingNumbers(p.numbers, p.totalCount)
-		if !reflect.DeepEqual(p.expect, got) {
-			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(p.expect), fmt.Sprint(got))
+	for _, tt := range tests {
+		got := findMissingNumbers(tt.numbers, tt.totalCount)
+		if !reflect.DeepEqual(tt.expect, got) {
+			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(tt.expect), fmt.Sprint(got))
 		}
 	}
 }

@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetPairs(t *testing.T) {
-	patterns := []struct {
+	tests := []struct {
 		array  []int
 		sum    int
 		expect [][]int
@@ -30,10 +30,10 @@ func TestGetPairs(t *testing.T) {
 		},
 	}
 
-	for _, p := range patterns {
-		got := getPairs(p.array, p.sum)
-		if !reflect.DeepEqual(p.expect, got) {
-			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(p.expect), fmt.Sprint(got))
+	for _, tt := range tests {
+		got := getPairs(tt.array, tt.sum)
+		if !reflect.DeepEqual(tt.expect, got) {
+			t.Errorf("Expect output to %s, but %s\n", fmt.Sprint(tt.expect), fmt.Sprint(got))
 		}
 	}
 }
